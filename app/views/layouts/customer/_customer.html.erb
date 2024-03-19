@@ -1,0 +1,29 @@
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <%= image_tag customer.image.url, class: "image is-64x64" if customer.image.attached? %>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= customer.full_name %></strong><br>
+          <% if customer.email.present? %>
+            <%= customer.email %><br>
+          <% else %>
+            <span class="has-text-danger">Email not provided</span><br>
+          <% end %>
+          <% if customer.phone_number.present? %>
+            <%= customer.phone_number %><br>
+          <% else %>
+            <span class="has-text-danger">Phone number not provided</span><br>
+          <% end %>
+          <% if customer.notes.present? %>
+            <%= truncate(customer.notes, length: 50) %><br>
+          <% else %>
+            <span class="has-text-grey">No notes available</span><br>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
